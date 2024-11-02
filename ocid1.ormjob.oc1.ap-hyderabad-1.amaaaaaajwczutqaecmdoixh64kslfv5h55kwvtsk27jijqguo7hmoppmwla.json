@@ -1,0 +1,630 @@
+{
+  "version": 4,
+  "terraform_version": "1.2.9",
+  "serial": 13,
+  "lineage": "ae855ee9-2338-6c51-bf35-6e194148c73a",
+  "outputs": {
+    "arguments": {
+      "value": [
+        "oci://dataflow-warehouse-4ef1@axlxajw5sgl5/netflix_titles.csv"
+      ],
+      "type": [
+        "tuple",
+        [
+          "string"
+        ]
+      ]
+    },
+    "dataflow_logs_bucket_name": {
+      "value": "dataflow-logs-4ef1",
+      "type": "string"
+    },
+    "dataflow_warehouse_bucket_name": {
+      "value": "dataflow-warehouse-4ef1",
+      "type": "string"
+    },
+    "file_uri": {
+      "value": "oci://dataflow-warehouse-4ef1@axlxajw5sgl5/datacleaning.py",
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "mode": "data",
+      "type": "oci_identity_compartment",
+      "name": "backup_compartment",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "compartment_id": null,
+            "defined_tags": {},
+            "description": "kkrreddy94",
+            "freeform_tags": {},
+            "id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "inactive_state": null,
+            "is_accessible": true,
+            "name": "kkrreddy94",
+            "state": "ACTIVE",
+            "time_created": "2024-10-27 22:22:51.149 +0000 UTC"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "oci_identity_region_subscriptions",
+      "name": "home_region_subscriptions",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "filter": [
+              {
+                "name": "is_home_region",
+                "regex": false,
+                "values": [
+                  "true"
+                ]
+              }
+            ],
+            "id": "IdentityRegionSubscriptionsDataSource-3162650431",
+            "region_subscriptions": [
+              {
+                "is_home_region": true,
+                "region_key": "HYD",
+                "region_name": "ap-hyderabad-1",
+                "state": "READY",
+                "tenancy_id": ""
+              }
+            ],
+            "tenancy_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "data",
+      "type": "oci_objectstorage_namespace",
+      "name": "os_namespace",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "id": "ObjectStorageNamespaceDataSource-3162650431",
+            "namespace": "axlxajw5sgl5"
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_dataflow_application",
+      "name": "tf_application",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "application_log_config": [
+              {
+                "log_group_id": null,
+                "log_id": null
+              }
+            ],
+            "archive_uri": "",
+            "arguments": [
+              "oci://dataflow-warehouse-4ef1@axlxajw5sgl5/netflix_titles.csv"
+            ],
+            "class_name": "",
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "configuration": {},
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:52:51.798Z"
+            },
+            "description": null,
+            "display_name": "tf_app",
+            "driver_shape": "VM.Standard2.1",
+            "driver_shape_config": [
+              {
+                "memory_in_gbs": 15,
+                "ocpus": 1
+              }
+            ],
+            "execute": null,
+            "executor_shape": "VM.Standard2.1",
+            "executor_shape_config": [
+              {
+                "memory_in_gbs": 15,
+                "ocpus": 1
+              }
+            ],
+            "file_uri": "oci://dataflow-warehouse-4ef1@axlxajw5sgl5/datacleaning.py",
+            "freeform_tags": {},
+            "id": "ocid1.dataflowapplication.oc1.ap-hyderabad-1.anuhsljrjwczutqaobgtlmqtrtfaujr46aot2hncb3vd2gb2tg4wo5bxssya",
+            "idle_timeout_in_minutes": null,
+            "language": "PYTHON",
+            "logs_bucket_uri": "oci://dataflow-logs-4ef1@axlxajw5sgl5/",
+            "max_duration_in_minutes": null,
+            "metastore_id": null,
+            "num_executors": 1,
+            "owner_principal_id": "ocid1.user.oc1..aaaaaaaahhh62rdsxs72d3qn32ngsjonfphthncrxsfm6agomwzctylnm4oq",
+            "owner_user_name": "kkrreddy94@gmail.com",
+            "parameters": [],
+            "pool_id": null,
+            "private_endpoint_id": null,
+            "spark_version": "3.0",
+            "state": "ACTIVE",
+            "time_created": "2024-11-01 23:52:52.066 +0000 UTC",
+            "time_updated": "2024-11-01 23:52:52.066 +0000 UTC",
+            "timeouts": null,
+            "type": "BATCH",
+            "warehouse_bucket_uri": "oci://dataflow-warehouse-4ef1@axlxajw5sgl5/"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "data.oci_objectstorage_namespace.os_namespace",
+            "oci_identity_tag.ArchitectureCenterTag",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "oci_objectstorage_bucket.dataflow_logs",
+            "oci_objectstorage_bucket.dataflow_warehouse",
+            "oci_objectstorage_object.code",
+            "oci_objectstorage_object.sample_data",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_identity_group",
+      "name": "dataflow_admin_group",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"].homeregion",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:50:40.248Z"
+            },
+            "description": "Data Flow Admins group",
+            "freeform_tags": {},
+            "id": "ocid1.group.oc1..aaaaaaaalhgbbnvilqpngbqpayxjeuijzrjuolfrojcxnwmw6j4362c2tbrq",
+            "inactive_state": null,
+            "name": "dataflow-admins-group",
+            "state": "ACTIVE",
+            "time_created": "2024-11-01 23:50:40.281 +0000 UTC",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_identity_group",
+      "name": "dataflow_user_group",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"].homeregion",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:50:40.233Z"
+            },
+            "description": "Data Flow Users group",
+            "freeform_tags": {},
+            "id": "ocid1.group.oc1..aaaaaaaapyyme5rpr7w5fjqz7hndwenj2rqxuj243gbwrmoptjwdk2ulsl2a",
+            "inactive_state": null,
+            "name": "dataflow-users-group",
+            "state": "ACTIVE",
+            "time_created": "2024-11-01 23:50:40.267 +0000 UTC",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_identity_policy",
+      "name": "dataflow_admin_policy",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"].homeregion",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "ETag": "41d2d4732bbd1492894e527d052e6e158ae14925",
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:52:51.460Z"
+            },
+            "description": "Data Flow Admins policy",
+            "freeform_tags": {},
+            "id": "ocid1.policy.oc1..aaaaaaaaizlckympglm3dqpixtz2sdpst7ussvzhh32g3hnyu6ufwfr6eczq",
+            "inactive_state": null,
+            "lastUpdateETag": "41d2d4732bbd1492894e527d052e6e158ae14925",
+            "name": "dataflow-admins-policy",
+            "policyHash": "8f185a8b350c0bc8be017fcdab6342f8",
+            "state": "ACTIVE",
+            "statements": [
+              "ALLOW GROUP dataflow-admins-group TO READ buckets IN TENANCY",
+              "ALLOW GROUP dataflow-admins-group TO MANAGE dataflow-family IN TENANCY",
+              "ALLOW GROUP dataflow-admins-group TO MANAGE objects IN TENANCY WHERE ALL {any {target.bucket.name='dataflow-warehouse-4ef1',target.bucket.name='dataflow-logs-4ef1'}, any {request.permission='OBJECT_CREATE', request.permission='OBJECT_INSPECT'}}",
+              "ALLOW GROUP dataflow-admins-group TO INSPECT tag-namespaces IN TENANCY",
+              "ALLOW GROUP dataflow-admins-group TO READ tag-namespaces IN TENANCY"
+            ],
+            "time_created": "2024-11-01 23:52:51.498 +0000 UTC",
+            "timeouts": null,
+            "version_date": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "data.oci_objectstorage_namespace.os_namespace",
+            "oci_identity_tag.ArchitectureCenterTag",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "oci_objectstorage_bucket.dataflow_logs",
+            "oci_objectstorage_bucket.dataflow_warehouse",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_identity_policy",
+      "name": "dataflow_user_policy",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"].homeregion",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "ETag": "1660f8811c1a770c779962847131617380a792d7",
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:50:40.199Z"
+            },
+            "description": "Data Flow Users policy",
+            "freeform_tags": {},
+            "id": "ocid1.policy.oc1..aaaaaaaavdaabuc54gb4k4dsucffbi4kyzkw7jbusi7nkzevt7vi6tzsbilq",
+            "inactive_state": null,
+            "lastUpdateETag": "1660f8811c1a770c779962847131617380a792d7",
+            "name": "dataflow-users-policy",
+            "policyHash": "652db20243d3b09e4f0f4f8a17e06525",
+            "state": "ACTIVE",
+            "statements": [
+              "ALLOW GROUP dataflow-users-group TO READ buckets IN TENANCY",
+              "ALLOW GROUP dataflow-users-group TO USE dataflow-family IN TENANCY",
+              "ALLOW GROUP dataflow-users-group TO MANAGE dataflow-family IN TENANCY WHERE ANY {request.user.id = target.user.id, request.permission = 'DATAFLOW_APPLICATION_CREATE', request.permission = 'DATAFLOW_RUN_CREATE'}",
+              "ALLOW GROUP dataflow-users-group TO INSPECT tag-namespaces IN TENANCY",
+              "ALLOW GROUP dataflow-users-group TO READ tag-namespaces IN TENANCY"
+            ],
+            "time_created": "2024-11-01 23:50:40.215 +0000 UTC",
+            "timeouts": null,
+            "version_date": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_identity_tag",
+      "name": "ArchitectureCenterTag",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"].homeregion",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:50:40.114Z"
+            },
+            "description": "ArchitectureCenterTag",
+            "freeform_tags": {},
+            "id": "ocid1.tagdefinition.oc1..aaaaaaaagjdcdnefvagiddmzszmhwugojj3mnv7yg3exqrqrvryjhia7s77q",
+            "is_cost_tracking": false,
+            "is_retired": false,
+            "name": "release",
+            "state": "ACTIVE",
+            "tag_namespace_id": "ocid1.tagnamespace.oc1..aaaaaaaa7qpilq7ikpjmfuszsooilgfk2wxvvugrzvtvvjvms2gx5d7qwg7q",
+            "time_created": "2024-11-01 23:50:50.608 +0000 UTC",
+            "timeouts": null,
+            "validator": [
+              {
+                "validator_type": "ENUM",
+                "values": [
+                  "release",
+                  "1.0"
+                ]
+              }
+            ]
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjo5MDAwMDAwMDAwMDAsImRlbGV0ZSI6NDMyMDAwMDAwMDAwMDAsInVwZGF0ZSI6OTAwMDAwMDAwMDAwfX0=",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_identity_tag_namespace",
+      "name": "ArchitectureCenterTagNamespace",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"].homeregion",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "defined_tags": {
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:50:40.114Z"
+            },
+            "description": "ArchitectureCenterTagNamespace",
+            "freeform_tags": {},
+            "id": "ocid1.tagnamespace.oc1..aaaaaaaa7qpilq7ikpjmfuszsooilgfk2wxvvugrzvtvvjvms2gx5d7qwg7q",
+            "is_retired": false,
+            "name": "ArchitectureCenter\\data-flow-4ef1",
+            "state": "ACTIVE",
+            "time_created": "2024-11-01 23:50:40.194 +0000 UTC",
+            "timeouts": null
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_objectstorage_bucket",
+      "name": "dataflow_logs",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_type": "NoPublicAccess",
+            "approximate_count": "0",
+            "approximate_size": "0",
+            "auto_tiering": "Disabled",
+            "bucket_id": "ocid1.bucket.oc1.ap-hyderabad-1.aaaaaaaabo65ldlnp2nu56wn4a2dzycozjjt4t6c55vkyclobbrmxjhmwd2q",
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "created_by": "ocid1.user.oc1..aaaaaaaahhh62rdsxs72d3qn32ngsjonfphthncrxsfm6agomwzctylnm4oq",
+            "defined_tags": {
+              "ArchitectureCenter\\data-flow-4ef1.release": "1.0",
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:52:51.061Z"
+            },
+            "etag": "1ecb7fad-3d6e-461b-a2fd-0ee5adc96243",
+            "freeform_tags": {},
+            "id": "n/axlxajw5sgl5/b/dataflow-logs-4ef1",
+            "is_read_only": false,
+            "kms_key_id": null,
+            "metadata": null,
+            "name": "dataflow-logs-4ef1",
+            "namespace": "axlxajw5sgl5",
+            "object_events_enabled": false,
+            "object_lifecycle_policy_etag": null,
+            "replication_enabled": false,
+            "retention_rules": [],
+            "storage_tier": "Standard",
+            "time_created": "2024-11-01 23:52:51.071 +0000 UTC",
+            "timeouts": null,
+            "versioning": "Disabled"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "data.oci_objectstorage_namespace.os_namespace",
+            "oci_identity_tag.ArchitectureCenterTag",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_objectstorage_bucket",
+      "name": "dataflow_warehouse",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "access_type": "NoPublicAccess",
+            "approximate_count": "0",
+            "approximate_size": "0",
+            "auto_tiering": "Disabled",
+            "bucket_id": "ocid1.bucket.oc1.ap-hyderabad-1.aaaaaaaa23mcanqyxja53ijghmx7mzqf45v6sczoqoksh45zujkhe7hdnt6a",
+            "compartment_id": "ocid1.tenancy.oc1..aaaaaaaad7cul5lf5noso5jzwom7z6gczfdd5rh6hu4toxr66jwgw65vwqka",
+            "created_by": "ocid1.user.oc1..aaaaaaaahhh62rdsxs72d3qn32ngsjonfphthncrxsfm6agomwzctylnm4oq",
+            "defined_tags": {
+              "ArchitectureCenter\\data-flow-4ef1.release": "1.0",
+              "Oracle-Tags.CreatedBy": "default/kkrreddy94@gmail.com",
+              "Oracle-Tags.CreatedOn": "2024-11-01T23:52:51.074Z"
+            },
+            "etag": "046e09fc-9c69-4715-b269-b24607e27973",
+            "freeform_tags": {},
+            "id": "n/axlxajw5sgl5/b/dataflow-warehouse-4ef1",
+            "is_read_only": false,
+            "kms_key_id": null,
+            "metadata": null,
+            "name": "dataflow-warehouse-4ef1",
+            "namespace": "axlxajw5sgl5",
+            "object_events_enabled": false,
+            "object_lifecycle_policy_etag": null,
+            "replication_enabled": false,
+            "retention_rules": [],
+            "storage_tier": "Standard",
+            "time_created": "2024-11-01 23:52:51.084 +0000 UTC",
+            "timeouts": null,
+            "versioning": "Disabled"
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "data.oci_objectstorage_namespace.os_namespace",
+            "oci_identity_tag.ArchitectureCenterTag",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_objectstorage_object",
+      "name": "code",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "dataflow-warehouse-4ef1",
+            "cache_control": null,
+            "content": null,
+            "content_disposition": null,
+            "content_encoding": null,
+            "content_language": null,
+            "content_length": "3607",
+            "content_md5": "vzMT+d2A1gj5V/pMdXS/yw==",
+            "content_type": "application/octet-stream",
+            "delete_all_object_versions": false,
+            "id": "n/axlxajw5sgl5/b/dataflow-warehouse-4ef1/o/datacleaning.py",
+            "metadata": null,
+            "namespace": "axlxajw5sgl5",
+            "object": "datacleaning.py",
+            "opc_sse_kms_key_id": null,
+            "source": "./files/datacleaning.py 2022-05-20 13:45:22 +0000 UTC",
+            "source_uri_details": [],
+            "state": "COMPLETED",
+            "storage_tier": "Standard",
+            "timeouts": null,
+            "version_id": "f2cde513-47c2-4939-b441-2387fcad7df8",
+            "work_request_id": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "data.oci_objectstorage_namespace.os_namespace",
+            "oci_identity_tag.ArchitectureCenterTag",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "oci_objectstorage_bucket.dataflow_warehouse",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "oci_objectstorage_object",
+      "name": "sample_data",
+      "provider": "provider[\"registry.terraform.io/oracle/oci\"]",
+      "instances": [
+        {
+          "index_key": 0,
+          "schema_version": 0,
+          "attributes": {
+            "bucket": "dataflow-warehouse-4ef1",
+            "cache_control": null,
+            "content": null,
+            "content_disposition": null,
+            "content_encoding": null,
+            "content_language": null,
+            "content_length": "3000491",
+            "content_md5": "qUVx91PZgIllqE8GMhSClA==",
+            "content_type": "application/octet-stream",
+            "delete_all_object_versions": false,
+            "id": "n/axlxajw5sgl5/b/dataflow-warehouse-4ef1/o/netflix_titles.csv",
+            "metadata": null,
+            "namespace": "axlxajw5sgl5",
+            "object": "netflix_titles.csv",
+            "opc_sse_kms_key_id": null,
+            "source": "./files/netflix_titles.csv 2022-05-20 13:45:22 +0000 UTC",
+            "source_uri_details": [],
+            "state": "COMPLETED",
+            "storage_tier": "Standard",
+            "timeouts": null,
+            "version_id": "564fd6da-83c2-480d-9ba0-52725e457fe8",
+            "work_request_id": ""
+          },
+          "sensitive_attributes": [],
+          "private": "eyJlMmJmYjczMC1lY2FhLTExZTYtOGY4OC0zNDM2M2JjN2M0YzAiOnsiY3JlYXRlIjoxMjAwMDAwMDAwMDAwLCJkZWxldGUiOjEyMDAwMDAwMDAwMDAsInVwZGF0ZSI6MTIwMDAwMDAwMDAwMH19",
+          "dependencies": [
+            "data.oci_identity_region_subscriptions.home_region_subscriptions",
+            "data.oci_objectstorage_namespace.os_namespace",
+            "oci_identity_tag.ArchitectureCenterTag",
+            "oci_identity_tag_namespace.ArchitectureCenterTagNamespace",
+            "oci_objectstorage_bucket.dataflow_warehouse",
+            "random_id.tag"
+          ]
+        }
+      ]
+    },
+    {
+      "mode": "managed",
+      "type": "random_id",
+      "name": "tag",
+      "provider": "provider[\"registry.terraform.io/hashicorp/random\"]",
+      "instances": [
+        {
+          "schema_version": 0,
+          "attributes": {
+            "b64_std": "TvE=",
+            "b64_url": "TvE",
+            "byte_length": 2,
+            "dec": "20209",
+            "hex": "4ef1",
+            "id": "TvE",
+            "keepers": null,
+            "prefix": null
+          },
+          "sensitive_attributes": []
+        }
+      ]
+    }
+  ]
+}
